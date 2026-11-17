@@ -19,6 +19,7 @@ class StoreTaskRequest extends FormRequest
 
     public function rules(): array
     {
+        // define the validation rules for storing a task
         return [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],

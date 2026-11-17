@@ -13,6 +13,6 @@ class Task extends Model
 
     public function isComplete()
     {
-        return $this->status === TaskStatus::Completed->value;
+        return $this->status === TaskStatus::Completed->value; // Check if the task is completed
     }
 }

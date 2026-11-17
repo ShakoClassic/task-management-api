@@ -19,6 +19,7 @@ class UpdateTaskRequest extends FormRequest
 
     public function rules(): array
     {
+        // define the validation rules for updating a task
         return [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
