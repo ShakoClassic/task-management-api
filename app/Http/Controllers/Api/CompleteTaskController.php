@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\Api;
 
 use App\Enums\TaskStatus;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;

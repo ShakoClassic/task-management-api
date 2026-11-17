@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('due_date');
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
+            $table->index(['title', 'status', 'priority']); // Add an index for faster searching and filtering
         });
     }
 
