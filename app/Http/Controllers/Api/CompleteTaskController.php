@@ -15,7 +15,8 @@ class CompleteTaskController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Task $task) // This method is invoked when the controller is called as a single-action controller
+    // This method is invoked when the controller is called as a single-action controller
+    public function __invoke(Task $task)
     {
         // Check if the task is already completed
 

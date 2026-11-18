@@ -21,15 +21,15 @@ class TaskFactory extends Factory
         $status = fake()->randomElement(TaskStatus::cases());
         return [
             'title'       => fake()->sentence(4),
-            // generate a random title
+
             'description' => fake()->paragraph(),
 
             'priority'    => fake()->randomElement(['low', 'medium', 'high']),
-            // generate a random option
+
             'status'      => $status,
             'due_date' => fake()->dateTimeBetween(now()->addDay(), now()->addWeek()),
-            'completed_at' => $status === TaskStatus::Completed ? fake()->dateTimeBetween(now()->subWeek(), now()) : null, // set completed_at if status is completed
-
+            // set completed_at if status is completed
+            'completed_at' => $status === TaskStatus::Completed ? fake()->dateTimeBetween(now()->subWeek(), now()) : null,
         ];
     }
 }

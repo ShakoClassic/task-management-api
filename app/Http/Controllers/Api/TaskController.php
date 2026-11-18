@@ -23,9 +23,10 @@ class TaskController extends Controller
             'status' => ['nullable', 'string', Rule::enum(TaskStatus::class)],
             'priority' => ['nullable', 'string', Rule::enum(TaskPriorties::class)],
         ]);
-
-        $tasks = Task::query() // Start a query on the Task model
-            ->when( // Conditionally apply a filter based on the request parameters
+        // Start a query on the Task model
+        $tasks = Task::query()
+            // Conditionally apply a filter based on the request parameters
+            ->when(
                 $request->filled('status'),
                 function ($query) use ($request) {
                     $query->where('status', $request->status);
@@ -46,8 +47,8 @@ class TaskController extends Controller
     //save a new task
     public function store(StoreTaskRequest $request)
     {
-
-        $newTask  = Task::create($request->validated()); // Create a new task using the validated data from the request
+        // Create a new task using the validated data from the request
+        $newTask  = Task::create($request->validated());
 
         return response()->json([
             'message' => 'task created.',
@@ -67,7 +68,8 @@ class TaskController extends Controller
     //update a task
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        $task->update($request->validated()); // Update the task with the validated data from the request
+        // Update the task with the validated data from the request
+        $task->update($request->validated());
 
         return response()->json([
             'message' => 'task updated.',
@@ -78,7 +80,7 @@ class TaskController extends Controller
     //delete a task
     public function destroy(Task $task)
     {
-        $task->delete(); // soft delete
+        $task->delete();
 
         return response()->json([
             'message' => 'task deleted.'
